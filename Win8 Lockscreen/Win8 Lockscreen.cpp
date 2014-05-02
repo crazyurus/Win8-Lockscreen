@@ -1,4 +1,4 @@
-// Win32Project1.cpp : ����Ӧ�ó������ڵ㡣
+// Win8 Lockscreen.cpp 
 //
 
 #include "stdafx.h"
@@ -21,8 +21,3 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	
 	return 0;
 }
-
-
-
-
-//����	3	error X3501: 'main': entrypoint not found	C:\Users\����\Documents\Visual Studio Projects\DirectXSamples\Tutorial06\FXC	Tutorial06
