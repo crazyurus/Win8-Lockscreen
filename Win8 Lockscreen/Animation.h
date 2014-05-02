@@ -22,7 +22,7 @@ public:
 	Animation(T start, T end, T duration) :
 		m_Start(start),
 		m_End(end),
-		m_Duration(duration)//Æðµã ÖÕµã Ê±¼ä
+		m_Duration(duration)//ï¿½ï¿½ï¿½ ï¿½Õµï¿½ Ê±ï¿½ï¿½
 	{
 	}
 
@@ -129,7 +129,7 @@ public:
 protected:
 	T ComputeValue(T time)
 	{
-		return m_Start + (m_End - m_Start) * (-pow(2, -10 * time / m_Duration) + 1);//Æðµã+×ÜÂ·³Ì*£¨1-2^(-10*µ±Ç°Ê±¼ä/×ÜÊ±¼ä£©£©
+		return m_Start + (m_End - m_Start) * (-pow(2, -10 * time / m_Duration) + 1);//ï¿½ï¿½ï¿½+ï¿½ï¿½Â·ï¿½ï¿½*ï¿½ï¿½1-2^(-10*ï¿½ï¿½Ç°Ê±ï¿½ï¿½/ï¿½ï¿½Ê±ï¿½ä£©ï¿½ï¿½
 	}
 };
 
@@ -162,8 +162,8 @@ protected:
 			return m_Start + (m_End - m_Start) / 2 * pow(2, 10 * (time - 1));
 		}
 		//otherwise, do the ease-out portion
-		/* µ±¶ÔÏóµÄËÙ¶ÈÖð½¥¼õÂýÀ´¼Ó½økeyframeÄÚÊ±£¬Õâ¾ÍÊÇEase-In ;
-		µ±¶ÔÏóµÄËÙ¶ÈÖð½¥¼õÂýÀ´Àë¿ªkeyframeÊ±£¬Õâ¾ÍÊÇEase-Out¡£*/
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½ï¿½ð½¥¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½keyframeï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ease-In ;
+		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½ï¿½ð½¥¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªkeyframeÊ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ease-Outï¿½ï¿½*/
 		return m_Start + (m_End - m_Start) / 2 * (-pow(2, -10 * --time) + 2);
 	}
 };

@@ -30,7 +30,6 @@ Direct2D::Direct2D()
 	ZeroMemory(IfCircles, _countof(IfCircles));
 }
 
-
 void Direct2D::CreateDeviceIndependentResources()
 {
 	HRESULT hr = E_FAIL;
@@ -50,7 +49,6 @@ void Direct2D::CreateDeviceIndependentResources()
 		exit(1);
 	}
 }
-
 
 void Direct2D::CreateDeviceResources()
 {
@@ -412,7 +410,7 @@ void Direct2D::DrawBackground()
 void Direct2D::CloseTask()
 {
 	HWND hTask = NULL;
-	hTask = FindWindow(L"TaskManagerWindow", L"ÈÎÎñ¹ÜÀíÆ÷");
+	hTask = FindWindow(L"TaskManagerWindow", L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	if (IsWindow(hTask))
 	{
 		DWORD dTask = 0;

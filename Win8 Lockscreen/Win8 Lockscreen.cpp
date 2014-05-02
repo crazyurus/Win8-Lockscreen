@@ -1,8 +1,8 @@
-// Win32Project1.cpp : ¶¨ÒåÓ¦ÓÃ³ÌÐòµÄÈë¿Úµã¡£
+// Win32Project1.cpp : ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã¡£
 //
 
 #include "stdafx.h"
-#include "Win32Project1.h"
+#include "Win8 Lockscreen.h"
 #include "Direct2D.h"
 
 
@@ -13,8 +13,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 {
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
-
-	Direct2D d2d;
+    Direct2D d2d;
 	if (SUCCEEDED(d2d.Initialize()))
 	{
 		d2d.RunMessageLoop();
@@ -26,4 +25,4 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 
 
 
-//´íÎó	3	error X3501: 'main': entrypoint not found	C:\Users\ÓêÅà\Documents\Visual Studio Projects\DirectXSamples\Tutorial06\FXC	Tutorial06
+//ï¿½ï¿½ï¿½ï¿½	3	error X3501: 'main': entrypoint not found	C:\Users\ï¿½ï¿½ï¿½ï¿½\Documents\Visual Studio Projects\DirectXSamples\Tutorial06\FXC	Tutorial06

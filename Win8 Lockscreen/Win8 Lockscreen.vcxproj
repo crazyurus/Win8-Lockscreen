@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0A13E663-379D-4C83-8C21-7C8831CDF74B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Win32Project1</RootNamespace>
+    <RootNamespace>Win8 Lockscreen</RootNamespace>
     <ProjectName>Win8 Lockscreen</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -156,7 +156,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Win32Project1.h" />
+    <ClInclude Include="Win8 Lockscreen.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Direct2D.cpp" />
@@ -166,15 +166,14 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Win32Project1.cpp" />
+    <ClCompile Include="Win8 Lockscreen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Win32Project1.rc" />
+    <ResourceCompile Include="Win8 Lockscreen.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Screen.png" />
     <Image Include="small.ico" />
-    <Image Include="Win32Project1.ico" />
+    <Image Include="Win8 Lockscreen.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

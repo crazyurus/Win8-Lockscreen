@@ -17,7 +17,7 @@
 #ifndef IDC_STATIC
 #define IDC_STATIC				-1
 #endif
-// пб╤тоС╣добр╩вИд╛хож╣
+// О©╫б╤О©╫О©╫О©╫О©╫О©╫О©╫р╩О©╫О©╫д╛О©╫О©╫ж╣
 //
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
