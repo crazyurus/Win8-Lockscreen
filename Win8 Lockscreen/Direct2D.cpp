@@ -310,70 +310,68 @@ LRESULT CALLBACK Direct2D::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARA
 }
 HRESULT Direct2D::Initialize()
 {
-	HRESULT hr = S_FALSE;
+	HRESULT hr = E_FAIL;
 	IMAGE_DOS_HEADER idh;
 	// Initialize device-indpendent resources, such
 	// as the Direct2D factory.
-	/*hr = CreateDeviceIndependentResources();*/
-	
-		// Register the window class.
-	    if(!GetPic()) return E_FAIL;
-		InitCircles();
-		WNDCLASSEX wcex = { sizeof(WNDCLASSEX) };
-		wcex.style = CS_HREDRAW | CS_VREDRAW;
-		wcex.lpfnWndProc = Direct2D::WndProc;
-		wcex.cbClsExtra = 0;
-		wcex.cbWndExtra = sizeof(LONG_PTR);
-		wcex.hInstance = (HINSTANCE)& idh;
-		wcex.hbrBackground = NULL;
-		wcex.lpszMenuName = NULL;
-		wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
-		wcex.lpszClassName = L"Direct2D";
+	// Register the window class.
+	if(!GetPic()) return hr;
+    InitCircles();
+	WNDCLASSEX wcex = { sizeof(WNDCLASSEX) };
+	wcex.style = CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc = Direct2D::WndProc;
+	wcex.cbClsExtra = 0;
+	wcex.cbWndExtra = sizeof(LONG_PTR);
+	wcex.hInstance = (HINSTANCE)& idh;
+	wcex.hbrBackground = NULL;
+	wcex.lpszMenuName = NULL;
+	wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
+	wcex.lpszClassName = L"Direct2D";
 
-		RegisterClassEx(&wcex);
+	RegisterClassEx(&wcex);
 
-			// Create the application window.
-			//
-			// Because the CreateWindow function takes its size in pixels, we
-			// obtain the system DPI and use it to scale the window size.
-		FLOAT dpiX, dpiY;
-		pD2DFactory->GetDesktopDpi(&dpiX, &dpiY);
+		// Create the application window.
+		//
+		// Because the CreateWindow function takes its size in pixels, we
+		// obtain the system DPI and use it to scale the window size.
+	FLOAT dpiX, dpiY;
+	pD2DFactory->GetDesktopDpi(&dpiX, &dpiY);
 
-		hWnd = CreateWindow(
-			L"Direct2D",
-			L"Direct2D",
-			WS_OVERLAPPEDWINDOW,
-			CW_USEDEFAULT,
-			CW_USEDEFAULT,
-			static_cast<UINT>(ceil(640.f * dpiX / 96.f)),
-			static_cast<UINT>(ceil(480.f * dpiY / 96.f)),
-			NULL,
-			NULL,
-			wcex.hInstance,
-			this
-			);
-		hr = hWnd ? S_OK : E_FAIL;
-		if (SUCCEEDED(hr))
-		{
-			CreateDeviceResources();
-			InitWIC();
-			ShowWindow(hWnd, SW_SHOWNORMAL);
-			UpdateWindow(hWnd);
-		}
-		ZeroMemory(&m_DwmTimingInfo, sizeof(m_DwmTimingInfo));
-		m_DwmTimingInfo.cbSize = sizeof(m_DwmTimingInfo);
+	hWnd = CreateWindow(
+		L"Direct2D",
+		L"Direct2D",
+		WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT,
+		CW_USEDEFAULT,
+		static_cast<UINT>(ceil(640.f * dpiX / 96.f)),
+		static_cast<UINT>(ceil(480.f * dpiY / 96.f)),
+		NULL,
+		NULL,
+		wcex.hInstance,
+		this
+		);
+	hr = hWnd ? S_OK : E_FAIL;
+	if (SUCCEEDED(hr))
+	{
+		CreateDeviceResources();
+		InitWIC();
+		ShowWindow(hWnd, SW_SHOWNORMAL);
+		UpdateWindow(hWnd);
+	}
+	ZeroMemory(&m_DwmTimingInfo, sizeof(m_DwmTimingInfo));
+	m_DwmTimingInfo.cbSize = sizeof(m_DwmTimingInfo);
 
-		// Get the composition refresh rate. If the DWM isn't running,
-		// get the refresh rate from GDI -- probably going to be 60Hz
-		if (FAILED(DwmGetCompositionTimingInfo(NULL, &m_DwmTimingInfo)))
-		{
-			HDC hdc = GetDC(hWnd);
-			m_DwmTimingInfo.rateCompose.uiDenominator = 1;
-			m_DwmTimingInfo.rateCompose.uiNumerator = GetDeviceCaps(hdc, VREFRESH);
-			ReleaseDC(hWnd, hdc);
-		}
+	// Get the composition refresh rate. If the DWM isn't running,
+	// get the refresh rate from GDI -- probably going to be 60Hz
+	if (FAILED(DwmGetCompositionTimingInfo(NULL, &m_DwmTimingInfo)))
+	{
+		HDC hdc = GetDC(hWnd);
+		m_DwmTimingInfo.rateCompose.uiDenominator = 1;
+		m_DwmTimingInfo.rateCompose.uiNumerator = GetDeviceCaps(hdc, VREFRESH);
+		ReleaseDC(hWnd, hdc);
+	}
 
-		return hr;
+	return hr;
 }
 
 void Direct2D::RunMessageLoop()
@@ -410,7 +408,7 @@ void Direct2D::DrawBackground()
 void Direct2D::CloseTask()
 {
 	HWND hTask = NULL;
-	hTask = FindWindow(L"TaskManagerWindow", L"���������");
+	hTask = FindWindow(L"TaskManagerWindow", L"任务管理器");
 	if (IsWindow(hTask))
 	{
 		DWORD dTask = 0;
